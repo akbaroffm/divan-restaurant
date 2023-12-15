@@ -377,7 +377,7 @@
     min-width: max-content;
     color: black;
   }
-  
+
   .btn:is(:hover, :focus-visible)::before { bottom: -50%; }
   
   .btn:is(:hover, :focus-visible) .text-1 { transform: translateY(-40px); }
@@ -492,6 +492,9 @@
     outline: none;
     transition: border-color var(--transition-2);
   }
+  /* .bg-color{
+    background-color: black;
+  } */
   
   .input-field::placeholder { color: inherit; }
   
