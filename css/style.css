@@ -414,7 +414,9 @@
     overflow: hidden;
     z-index: 1;
   }
-  
+  .padding-bottom{
+    padding-bottom: 0;
+  }
   .bg-black-10 { background-color: var(--smoky-black-2); }
   
   .grid-list {
@@ -1796,6 +1798,10 @@
       bottom: 0;
       left: 0;
     }
+    .service .shape-3 {
+      right: 0;
+      left: 0;
+    }
   
     .service .shape-2 {
       top: 0;
@@ -2153,4 +2159,8 @@
       left: 0;
     }
   
+  }
+
+  .special-dish-banner2{
+    padding-top: 100px;
   }
