@@ -2167,3 +2167,39 @@
   .del-wh{
     color: #fff;
   }
+
+  /* Modal CSS */
+#customModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#customModal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+/* Modal content CSS */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.modal-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
