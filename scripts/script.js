@@ -213,3 +213,9 @@ var sendtelegram = function() {
     document.getElementById("message").value = "";
     return false;
 };
+
+
+function sendtelegram() {
+        alert("Buyurtmangiz qabul qilindi");
+        return false; // Agar false qaytarilsa, forma yuborilmaydi
+}
