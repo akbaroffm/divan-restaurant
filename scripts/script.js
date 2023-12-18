@@ -215,6 +215,7 @@ var sendtelegram = function() {
     return false;
 };
 function showAnimatedAlert() {
+  // Animatsiyali alert
   Swal.fire({
       title: "Buyurtma qabul qilindi!",
       text: "Rahmat! Buyurtmangiz muvaffaqiyatli qabul qilindi.",
@@ -228,3 +229,8 @@ function showAnimatedAlert() {
       }
   });
 }
+
+// Animatsiya ishlamagan default alertni o'chirish
+window.alert = function(message){
+  showAnimatedAlert();
+};
