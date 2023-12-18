@@ -168,3 +168,48 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+var telegram_bot_id = "6918241709:AAFkVcEERE1eXWMDk3avVs--N9yNxaiZWyE";
+
+var chat_id = -1002045060375;
+var u_name, phone, select, filial, hall, date, time, message;
+var ready = function() {
+    u_name = document.getElementById("name").value;
+    phone = document.getElementById("phone").value;
+    select = document.getElementById("person").value;
+    filial = document.getElementById("filial").value;
+    hall = document.getElementById("hall").value;
+    date = document.getElementById("reservation-date").value;
+    time = document.getElementById("time").value;
+    message = document.getElementById("message").value;
+    message = "Ismi: " + u_name + "\nRaqami: " + phone + "\nKishilar soni: " + select + "\nFilial: " + filial + "\nJoylashuvi: " + hall + "\nSana: " + date + "\nSoat: " + time + "\nIzoh: " + message;
+};
+var sendtelegram = function() {
+    ready();
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache"
+        },
+        "data": JSON.stringify({
+            "chat_id": chat_id,
+            "text": message
+        })
+    };
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+    });
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("person").value = "";
+    document.getElementById("filial").value = "";
+    document.getElementById("hall").value = "";
+    document.getElementById("reservation-date").value = "";
+    document.getElementById("time").value = "";
+    document.getElementById("message").value = "";
+    return false;
+};

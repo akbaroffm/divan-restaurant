@@ -35,9 +35,9 @@
     <link rel="preload" as="image" href="./images/hero-bg1.jpg">
     <link rel="preload" as="image" href="./images/hero-bg2.jpg">
     <link rel="preload" as="image" href="./images/hero-bg3.jpg">
-    
-  </head>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+  </head>
   <body id="top">
     
     <!-- 
@@ -557,7 +557,7 @@
           
           <div class="special-dish-banner">
             <img src="./images/zavtrak-100.jpg" width="940" height="900" loading="lazy" alt="special dish"
-            class="img-cover">
+            class="img-cover img-contain">
           </div>
           
           <div class="special-dish-content bg-black-10">
@@ -611,7 +611,7 @@
           </div>
           <div class="special-dish-banner special-dish-banner2">
             <img src="./images/zavtrak-175.jpg" width="940" height="900" loading="lazy" alt="special dish"
-            class="img-cover">
+            class="img-cover img-contain">
           </div>
           
           <div class="special-dish-content bg-black-10">
@@ -975,7 +975,7 @@
           
           <div class="form reservation-form bg-black-10">
             
-            <form action="" class="form-left">
+            <form action="" class="form-left" onsubmit=" return sendtelegram()">
               
               <h2 class="headline-1 text-center">Online Bron Qilish</h2>
               
@@ -985,9 +985,9 @@
               </p>
               
               <div class="input-wrapper">
-                <input type="text" name="name" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field">
+                <input type="text" name="name" id="name" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field" required>
                 
-                <input type="tel" name="phone" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field">
+                <input type="tel" name="phone" id="phone" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field" required>
               </div>
               
               <div class="input-wrapper">
@@ -995,18 +995,18 @@
                 <div class="icon-wrapper">
                   <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
                   
-                  <select name="person" class="input-field">
-                    <option value="1-person">1 Kishi</option>
-                    <option value="2-person">2 Kishi</option>
-                    <option value="3-person">3 Kishi</option>
-                    <option value="4-person">4 Kishi</option>
-                    <option value="5-person">5 Kishi</option>
-                    <option value="6-person">6 Kishi</option>
-                    <option value="7-person">7 Kishi</option>
-                    <option value="8-person">8 Kishi</option>
-                    <option value="9-person">9 Kishi</option>
-                    <option value="10-person">10 Kishi</option>
-                    <option value="11-person">10 Kishidan ortiq</option>
+                  <select name="person" class="input-field" id="person" required>
+                    <option value="1-Kishi">1 Kishi</option>
+                    <option value="2-Kishi">2 Kishi</option>
+                    <option value="3-Kishi">3 Kishi</option>
+                    <option value="4-Kishi">4 Kishi</option>
+                    <option value="5-Kishi">5 Kishi</option>
+                    <option value="6-Kishi">6 Kishi</option>
+                    <option value="7-Kishi">7 Kishi</option>
+                    <option value="8-Kishi">8 Kishi</option>
+                    <option value="9-Kishi">9 Kishi</option>
+                    <option value="10-Kishi">10 Kishi</option>
+                    <option value="11-Kishi">10 Kishidan ortiq</option>
                   </select>
                   
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
@@ -1014,9 +1014,9 @@
                 <div class="icon-wrapper">
                   <ion-icon name="location-outline"></ion-icon>
                   
-                  <select name="filial" class="input-field">
-                    <option value="1-location">Sodiq Azimov Filial</option>
-                    <option value="2-location">Abay Filial</option>
+                  <select name="filial" class="input-field" id="filial">
+                    <option value="Sodiq Azimov filiali">Sodiq Azimov Filial</option>
+                    <option value="Abay filiali">Abay Filial</option>
                   </select>
                   
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
@@ -1024,10 +1024,10 @@
                 <div class="icon-wrapper">
                   <ion-icon name="pin-outline"></ion-icon>
                   
-                  <select name="hall" class="input-field">
-                    <option value="1-hall">Zal</option>
-                    <option value="2-hall">Terrasa</option>
-                    <option value="3-hall">Alohida xona</option>
+                  <select name="hall" class="input-field" id="hall">
+                    <option value="Zal">Zal</option>
+                    <option value="Terassa">Terrasa</option>
+                    <option value="Alohida xona">Alohida xona</option>
                   </select>
                   
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
@@ -1036,7 +1036,7 @@
                 <div class="icon-wrapper">
                   <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
                   
-                  <input type="date" name="reservation-date" class="input-field">
+                  <input type="date" name="reservation-date" class="input-field" id="reservation-date" required>
                   
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
                 </div>
@@ -1044,23 +1044,23 @@
                 <div class="icon-wrapper">
                   <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
                   
-                  <select name="person" class="input-field">
-                    <option value="08:00am">08 : 00</option>
-                    <option value="09:00am">09 :</option>
-                    <option value="010:00am">10 : 00</option>
-                    <option value="011:00am">11 : 00</option>
-                    <option value="012:00am">12 : 00</option>
-                    <option value="01:00pm">13 : 00</option>
-                    <option value="02:00pm">14 : 00</option>
-                    <option value="03:00pm">15 : 00</option>
-                    <option value="04:00pm">16 : 00</option>
-                    <option value="05:00pm">17 : 00</option>
-                    <option value="06:00pm">18 : 00</option>
-                    <option value="07:00pm">19 : 00</option>
-                    <option value="08:00pm">20 : 00</option>
-                    <option value="09:00pm">21 : 00</option>
-                    <option value="10:00pm">22 : 00</option>
-                    <option value="10:00pm">23 : 00</option>
+                  <select name="time" class="input-field" id="time">
+                    <option value="08:00">08 : 00</option>
+                    <option value="09:00">09 :</option>
+                    <option value="010:00">10 : 00</option>
+                    <option value="011:00">11 : 00</option>
+                    <option value="012:00">12 : 00</option>
+                    <option value="13:00">13 : 00</option>
+                    <option value="14:00">14 : 00</option>
+                    <option value="15:00">15 : 00</option>
+                    <option value="16:00">16 : 00</option>
+                    <option value="17:00">17 : 00</option>
+                    <option value="18:00">18 : 00</option>
+                    <option value="19:00">19 : 00</option>
+                    <option value="20:00">20 : 00</option>
+                    <option value="21:00">21 : 00</option>
+                    <option value="23:00">22 : 00</option>
+                    <option value="23:00">23 : 00</option>
                   </select>
                   
                   <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
@@ -1068,7 +1068,7 @@
                 
               </div>
               
-              <textarea name="message" placeholder="Izoh yozing" autocomplete="off" class="input-field"></textarea>
+              <textarea name="message" placeholder="Izoh yozing" autocomplete="off" class="input-field" id="message"></textarea>
               
               <button type="submit" class="btn btn-secondary">
                 <span class="text text-1">Stolni Bron Qilish</span>
