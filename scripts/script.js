@@ -215,6 +215,27 @@ var sendtelegram = function() {
     return false;
 };
 function showAnimatedAlert() {
+  var u_name = document.getElementById("name").value;
+  var phone = document.getElementById("phone").value;
+  var reservationDate = document.getElementById("reservation-date").value;
+
+  // Tekshirish: Agar malumotlar kiritilmagan bo'lsa
+  if (u_name.trim() === "" || phone.trim() === "" || reservationDate.trim() === "") {
+      // Animatsiyali xato alert
+      Swal.fire({
+          title: "Xato!",
+          text: "Ismingiz, telefon raqamingiz va sanangizni to'liq kiriting.",
+          icon: "error",
+          confirmButtonText: "Qaytadan kiriting",
+          showClass: {
+              popup: 'animate__animated animate__shakeX'
+          }
+      });
+
+      // Formani yuborishni to'xtatish
+      return false;
+  }
+
   // Animatsiyali alert
   Swal.fire({
       title: "Buyurtma qabul qilindi!",
@@ -228,9 +249,12 @@ function showAnimatedAlert() {
           popup: 'animate__animated animate__fadeOutUp'
       }
   });
-}
 
-// Animatsiya ishlamagan default alertni o'chirish
-window.alert = function(message){
-  showAnimatedAlert();
-};
+  // Formani tozalash (kerakmasa)
+  // document.getElementById("name").value = "";
+  // document.getElementById("phone").value = "";
+  // document.getElementById("reservation-date").value = "";
+
+  // Formani yuborishni to'xtatish (kerakmasa)
+  // return false;
+}
