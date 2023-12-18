@@ -204,21 +204,6 @@ var sendtelegram = function() {
         console.log(response);
         alert("Buyurtmangiz qabul qilindi");
     });
-    function openCustomModal() {
-      var customModal = document.getElementById("customModal");
-      customModal.classList.add("show");
-    
-      var modalContent = document.querySelector(".modal-content");
-      modalContent.classList.add("show");
-    }
-    
-    function closeCustomModal() {
-      var customModal = document.getElementById("customModal");
-      customModal.classList.remove("show");
-    
-      var modalContent = document.querySelector(".modal-content");
-      modalContent.classList.remove("show");
-    }
     document.getElementById("name").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("person").value = "";
@@ -229,3 +214,17 @@ var sendtelegram = function() {
     document.getElementById("message").value = "";
     return false;
 };
+function showAnimatedAlert() {
+  Swal.fire({
+      title: "Buyurtma qabul qilindi!",
+      text: "Rahmat! Buyurtmangiz muvaffaqiyatli qabul qilindi.",
+      icon: "success",
+      confirmButtonText: "Davom eting",
+      showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+      }
+  });
+}
