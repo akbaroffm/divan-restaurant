@@ -235,31 +235,25 @@ function showAnimatedAlert() {
       // Formani yuborishni to'xtatish
       return false;
   }
+
   // Animatsiyali alert
   Swal.fire({
-    title: "Buyurtma qabul qilindi!",
-    text: "Rahmat! Buyurtmangiz muvaffaqiyatli qabul qilindi.",
+      title: "Buyurtma qabul qilindi!",
+      text: "Rahmat! Buyurtmangiz muvaffaqiyatli qabul qilindi.",
       icon: "success",
       confirmButtonText: "Davom eting",
       showClass: {
           popup: 'animate__animated animate__fadeInDown'
-        },
+      },
       hideClass: {
           popup: 'animate__animated animate__fadeOutUp'
-        }
+      }
   });
-  
+
+  // Default alertni yo'q qilish
   window.alert = function() {};
 
-  document.querySelector(".form-left").addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the default form submission behavior
-      showAnimatedAlert(); // Call your custom alert function
-  });
-  // Formani tozalash (kerakmasa)
-  // document.getElementById("name").value = "";
-  // document.getElementById("phone").value = "";
-  // document.getElementById("reservation-date").value = "";
-
-  // Formani yuborishni to'xtatish (kerakmasa)
-  // return false;
+  // Formani yuborishni to'xtatish
+  return false;
 }
+
