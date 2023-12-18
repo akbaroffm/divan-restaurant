@@ -256,4 +256,17 @@ function showAnimatedAlert() {
   // Formani yuborishni to'xtatish
   return false;
 }
+document.addEventListener('DOMContentLoaded', function () {
+  var nameInput = document.getElementById('name');
+  var phoneInput = document.getElementById('phone');
 
+  // ismingizga faqat harflarni kirita olish uchun
+  nameInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+  });
+
+  // telefon raqamingizga faqat raqamlarni kirita olish uchun
+  phoneInput.addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9+]/g, '');
+  });
+});
