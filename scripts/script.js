@@ -202,6 +202,7 @@ var sendtelegram = function() {
     };
     $.ajax(settings).done(function(response) {
         console.log(response);
+        alert("Buyurtmangiz qabul qilindi");
     });
     document.getElementById("name").value = "";
     document.getElementById("phone").value = "";
@@ -213,9 +214,3 @@ var sendtelegram = function() {
     document.getElementById("message").value = "";
     return false;
 };
-
-
-function sendtelegram() {
-        alert("Buyurtmangiz qabul qilindi");
-        return false; // Agar false qaytarilsa, forma yuborilmaydi
-}
