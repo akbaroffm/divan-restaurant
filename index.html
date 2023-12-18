@@ -988,9 +988,9 @@
               </p>
               
               <div class="input-wrapper">
-                <input type="text" name="name" id="name" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field" required>
+                <input type="text" name="name" id="name" pattern="[A-Za-z\s]+" title="Faqat harflar kiriting" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field" required>
                 
-                <input type="tel" name="phone" id="phone" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field" required>
+                <input type="tel" name="phone" id="phone" pattern="[0-9]+" title="Faqat raqamlar kiriting" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field" required>
               </div>
               
               <div class="input-wrapper">
@@ -999,6 +999,7 @@
                   <ion-icon name="person-outline" aria-hidden="true"></ion-icon>
                   
                   <select name="person" class="input-field" id="person" required>
+                    <option value="" disabled selected>Odam soni</option>
                     <option value="1-Kishi">1 Kishi</option>
                     <option value="2-Kishi">2 Kishi</option>
                     <option value="3-Kishi">3 Kishi</option>
@@ -1018,6 +1019,7 @@
                   <ion-icon name="location-outline"></ion-icon>
                   
                   <select name="filial" class="input-field" id="filial">
+                    <option value=" " disabled selected>Filialni tanlang</option>
                     <option value="Sodiq Azimov filiali">Sodiq Azimov Filial</option>
                     <option value="Abay filiali">Abay Filial</option>
                   </select>
@@ -1048,6 +1050,7 @@
                   <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
                   
                   <select name="time" class="input-field" id="time">
+                    <option value="" disabled selected>Soat</option>
                     <option value="08:00">08 : 00</option>
                     <option value="09:00">09 :</option>
                     <option value="010:00">10 : 00</option>

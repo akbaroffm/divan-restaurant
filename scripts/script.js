@@ -239,7 +239,7 @@ function showAnimatedAlert() {
   // Animatsiyali alert
   Swal.fire({
       title: "Buyurtma qabul qilindi!",
-      text: "Rahmat! Buyurtmangiz muvaffaqiyatli qabul qilindi.",
+      text: "Rahmat! Menedjerlarimiz bir necha daqiqadan so'ng siz bilan bog'lanishadi",
       icon: "success",
       confirmButtonText: "Davom eting",
       showClass: {
