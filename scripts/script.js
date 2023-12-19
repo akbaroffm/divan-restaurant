@@ -263,7 +263,7 @@ function validateForm() {
   // Lotin va kiril harflarini qabul qilish
   var nameRegex = /^[A-Za-z\u0400-\u04FF\s]+$/;
   // + belgisi va raqamlarni qabul qilish
-  var phoneRegex = /^[\d\+\s]+$/;
+  var phoneRegex = /^[0-9+]+$/;
 
   // Tekshirish
   if (!nameRegex.test(nameInput.value)) {
@@ -272,7 +272,7 @@ function validateForm() {
   }
 
   if (!phoneRegex.test(phoneInput.value)) {
-      alert('Faqat + va raqamlar qabul qilinadi');
+      alert('Faqat raqamlar qabul qilinadi');
       return false;
   }
 
