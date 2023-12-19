@@ -988,9 +988,9 @@
               </p>
               
               <div class="input-wrapper">
-                <input type="text" name="name" id="name" pattern="[A-Za-z\s]+" title="Faqat harflar kiriting" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field" required>
+                <input type="text" name="name" id="name" pattern="[A-Za-z\u0400-\u04FF\s]+" title="Faqat lotin va kiril harflar qabul qilinadi" placeholder="Ismingizni kiriting" autocomplete="off" class="input-field" required>
                 
-                <input type="tel" name="phone" id="phone" pattern="[0-9]+" title="Faqat raqamlar kiriting" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field" required>
+                <input type="tel" name="phone" id="phone" pattern="[\d\+\s]+" title="Raqamlar qabul qiladi" placeholder="Raqamingizni kiriting" autocomplete="off" class="input-field" required>
               </div>
               
               <div class="input-wrapper">
@@ -1018,7 +1018,7 @@
                 <div class="icon-wrapper">
                   <ion-icon name="location-outline"></ion-icon>
                   
-                  <select name="filial" class="input-field" id="filial">
+                  <select name="filial" class="input-field" id="filial" required>
                     <option value=" " disabled selected>Filialni tanlang</option>
                     <option value="Sodiq Azimov filiali">Sodiq Azimov Filial</option>
                     <option value="Abay filiali">Abay Filial</option>
@@ -1029,7 +1029,7 @@
                 <div class="icon-wrapper">
                   <ion-icon name="pin-outline"></ion-icon>
                   
-                  <select name="hall" class="input-field" id="hall">
+                  <select name="hall" class="input-field" id="hall" required>
                     <option value="Zal">Zal</option>
                     <option value="Terassa">Terrasa</option>
                     <option value="Alohida xona">Alohida xona</option>
@@ -1049,7 +1049,7 @@
                 <div class="icon-wrapper">
                   <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
                   
-                  <select name="time" class="input-field" id="time">
+                  <select name="time" class="input-field" id="time" required>
                     <option value="" disabled selected>Soat</option>
                     <option value="08:00">08 : 00</option>
                     <option value="09:00">09 :</option>

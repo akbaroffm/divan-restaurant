@@ -256,17 +256,26 @@ function showAnimatedAlert() {
   // Formani yuborishni to'xtatish
   return false;
 }
-document.addEventListener('DOMContentLoaded', function () {
+function validateForm() {
   var nameInput = document.getElementById('name');
   var phoneInput = document.getElementById('phone');
 
-  // ismingizga faqat harflarni kirita olish uchun
-  nameInput.addEventListener('input', function () {
-      this.value = this.value.replace(/[^A-Za-z\s]/g, '');
-  });
+  // Lotin va kiril harflarini qabul qilish
+  var nameRegex = /^[A-Za-z\u0400-\u04FF\s]+$/;
+  // + belgisi va raqamlarni qabul qilish
+  var phoneRegex = /^[\d\+\s]+$/;
 
-  // telefon raqamingizga faqat raqamlarni kirita olish uchun
-  phoneInput.addEventListener('input', function () {
-    this.value = this.value.replace(/[^0-9+]/g, '');
-  });
-});
+  // Tekshirish
+  if (!nameRegex.test(nameInput.value)) {
+      alert('Faqat lotin va kiril harflar qabul qilinadi');
+      return false;
+  }
+
+  if (!phoneRegex.test(phoneInput.value)) {
+      alert('Faqat + va raqamlar qabul qilinadi');
+      return false;
+  }
+
+  // Yordamchi funksiya false qaytarish orqali formani to'xtatish
+  return true;
+}
