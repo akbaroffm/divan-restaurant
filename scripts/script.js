@@ -279,3 +279,32 @@ function validateForm() {
   // Yordamchi funksiya false qaytarish orqali formani to'xtatish
   return true;
 }
+
+const reservations = {}; // Mijozlar buyurtmalarini saqlaydigan obyekt
+
+  // Funksiya: Stolni bron qilish
+  function reserveTable(customerName, reservationDateTime) {
+      const currentTime = new Date().getTime();
+      const reservationKey = `${reservationDateTime}`;
+
+      // Agar buyurtma bitta kunda bitta marta qilsa:
+      if (!reservations[reservationKey] || currentTime - reservations[reservationKey] >= 24 * 60 * 60 * 1000) {
+          // Stolni bron qilish vaqtini saqlash
+          reservations[reservationKey] = currentTime;
+
+          // Mijozga xabar yuborish (console.log orqali)
+          console.log(`Stol ${reservationDateTime} vaqtida bron qilindi ${customerName} tomonidan.`);
+          return true; // Stolni muvaffaqiyatli bron qildi
+      } else {
+          // Agar boshqa mijoz allaqachon shu vaqtga stolni bron qilsa
+          console.log(`Stol ${reservationDateTime} vaqtida bron qilish mumkin emas ${customerName} uchun. Boshqa vaqt tanlang.`);
+          return false; // Muvaffaqiyatsiz, boshqa vaqt tanlang
+      }
+  }
+
+  // Mijozlar stolni bron qilish
+  reserveTable("Mijoz1", "2023-12-21 17:00");
+  reserveTable("Mijoz2", "2023-12-21 17:00"); // Bu buyurtma muvaffaqiyatsiz, chunki oldinroq stolni boshqa mijoz bron qilgan
+
+  // Mijozlar buyurtmalari bilan saqlangan obyektni ko'rsatish (console.log orqali)
+  console.log(reservations);
