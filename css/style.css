@@ -31,7 +31,7 @@
     --eerie-black-3: #7E2334;
     --eerie-black-4: #7E2334;
     --white: hsla(0, 0%, 100%, 1);
-    --white-alpha-20: #7E2334;
+    --white-alpha-20: #DCB56A;
     --white-alpha-10: #7E2334;
     --black: #7E2334;
     --black-alpha-80: #7E2334;
@@ -710,11 +710,11 @@
   }
   
   .navbar-list {
-    border-block-end: 1px solid var(--white-alpha-20);
+    border-block-end: 1px solid var(--white-alpha-10);
     margin-block-end: 100px;
   }
   
-  .navbar-item { border-block-start: 1px solid var(--white-alpha-20); }
+  .navbar-item { border-block-start: 1px solid var(--white-alpha-10); }
   
   .navbar-link {
     position: relative;
@@ -1499,7 +1499,7 @@
       left: 0;
       width: 100%;
       padding-block: 10px;
-      border-block-end: 1px solid var(--white-alpha-20);
+      border-block-end: 1px solid var(--white-alpha-10);
       z-index: 4;
       transition: var(--transition-1);
     }
