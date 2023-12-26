@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:locale" content="uz_UZ" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+
     
     <!-- 
       - primary meta tags
@@ -38,6 +43,10 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+    <link rel="stylesheet" href="path/to/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+
 </head>
 
   </head>
@@ -60,55 +69,53 @@
       - #TOP BAR
     -->
     
-      <div class="topbar">
-        <div class="container">
-          <address class="topbar-item">
-            <div class="icon">
-              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-            </div>
-            
-            <span class="span">
-              Sodiq Azimov ko'chasi 49A,  Abay ko'chasi 12
-            </span>
-          </address>
-          
-          <div class="separator"></div>
-          
-          <div class="topbar-item item-2">
-            <div class="icon">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-            </div>
-            
-            <span class="span">Har kuni : 08:00 dan 00:00 gacha</span>
+    <div class="topbar">
+      <div class="container">
+        <address class="topbar-item">
+          <div class="icon">
+            <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
           </div>
-          
-          <a href="tel:+998712331080" class="topbar-item link">
-            <div class="icon">
-              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-            </div>
-            
-            <span class="span"> 71 233 10 80</span>
-          </a>
-          <a href="tel: +998954761919" class="topbar-item link">
-            <div class="icon">
-              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-            </div>
-            
-            <span class="span"> 95 476 19 19</span>
-          </a>
-          
-          <div class="separator"></div>
-          
-          <a href="https://www.instagram.com/divan.rest/" class="topbar-item link">
-            <div class="icon">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </div>
-            
-            <span class="span">divan.rest</span>
-          </a>
-          
+    
+          <span class="span" data-translate="address">Sodiq Azimov ko'chasi 49A,  Abay ko'chasi 12</span>
+        </address>
+    
+        <div class="separator"></div>
+    
+        <div class="topbar-item item-2">
+          <div class="icon">
+            <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+          </div>
+    
+          <span class="span" data-translate="openingHours">Har kuni: 08:00 dan 00:00 gacha</span>
         </div>
+    
+        <a href="tel:+998712331080" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+    
+          <span class="span" data-translate="phoneNumber1">71 233 10 80</span>
+        </a>
+        <a href="tel: +998954761919" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+          </div>
+    
+          <span class="span" data-translate="phoneNumber2">95 476 19 19</span>
+        </a>
+    
+        <div class="separator"></div>
+    
+        <a href="https://www.instagram.com/divan.rest/" class="topbar-item link">
+          <div class="icon">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </div>
+    
+          <span class="span" data-translate="instagramLink">divan.rest</span>
+        </a>
       </div>
+    </div>
+    
       
     
     
@@ -122,7 +129,7 @@
       <div class="container">
         
         <a href="/" class="logo">
-          <img src="./images/logo.png" width="160" height="50" alt="Divan">
+          <img src="./images/logo.png"  width="160" height="50" alt="Divan">
         </a>
         
         <nav class="navbar" data-navbar>
@@ -141,7 +148,7 @@
               <a href="#home" class="navbar-link hover-underline active">
                 <div class="separator"></div>
                 
-                <span class="span">Bosh sahifa</span>
+                <span class="span" id="nav-home">Bosh sahifa</span>
               </a>
             </li>
             
@@ -176,6 +183,16 @@
                 <span class="span">Aloqa</span>
               </a>
             </li>
+            <!-- <li class="navbar-item pt-10">
+              <div class="language-selector">
+                <select style="color: white;" id="languageDropdown"class="navbar-link" onchange="changeLanguage(this.value)">
+                  <option value="uz" style="color: black;"><span class="flag flag-uz"></span>O'zbekcha</option>
+                  <option value="en" style="color: black;"><span class="flag flag-us"></span>English</option>
+                  <option value="ru" style="color: black;"><span class="flag flag-ru"></span>Русский</option>
+                  <option value="tr" style="color: black;"><span class="flag flag-tr"></span>Türkçe</option>
+                </select>
+              </div>
+            </li> -->
             
           </ul>
           
@@ -214,6 +231,15 @@
         </button>
         
         <div class="overlay" data-nav-toggler data-overlay></div>
+        <!-- <div class="language-selector navbar-item">
+          <select style="color: white;" id="languageDropdown" class="navbar-link hover-underline" onchange="changeLanguage(this.value)">
+            <option value="uz" style="color: black;">O'zbekcha</option>
+            <option value="en" style="color: black;"><i class="flag flag-us"></i>English</option>
+            <option value="ru" style="color: black;">Русский</option>
+            <option value="tr" style="color: black;">Türkçe</option>
+          </select>
+        </div> -->
+        
         
       </div>
     </header>
@@ -241,12 +267,11 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p> -->
               
-              <h2 class="display-1 hero-title slider-reveal">
-                Turk
-                Taomlari
-              </h2>
+              <h2 id="home-title" class="display-1 hero-title slider-reveal">
+                Turk Taomlari
+              </h2>              
               
-              <p class="body-2 hero-text slider-reveal">
+              <p class="body-2 hero-text slider-reveal" id="home-discription">
                 Oilangiz bilan keling va mazali taomdan zavqlaning
               </p>
               
@@ -266,7 +291,7 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">delightful experience</p> -->
               
-              <h2 class="display-1 hero-title slider-reveal">
+              <h2 class="display-1 hero-title slider-reveal" id="home-title">
                 Yevropa taomlari
               </h2>
               
@@ -290,7 +315,7 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">amazing & delicious</p> -->
               
-              <h1 class="display-1 hero-title slider-reveal">
+              <h1 class="display-1 hero-title slider-reveal" id="home-title">
                 Ajoyib atmosfera
               </h1>
               
@@ -335,7 +360,7 @@
         <section class="section service bg-black-10 text-center padding-bottom" aria-label="service">
           <div class="container">
             
-            <p class="section-subtitle label-2">Divan by Demir</p>
+            <p class="section-subtitle label-2">Divan by Demir  <span class="flag-icon flag-icon-tr"></span></p>
             
             <h2 class="headline-1 section-title">MENU</h2>
             
@@ -615,7 +640,6 @@
                 
                 <span class="text text-2" aria-hidden="true">"Menu" ni ko'rish</span>
               </a> -->
-              
             </div>
           </div>
           <div class="special-dish-banner special-dish-banner2">
@@ -762,7 +786,7 @@
                     
                     <div class="title-wrapper">
                       <h3 class="title-3">
-                        <a class="card-title">Divan Salati</a>
+                        <a class="card-title">Divan Salati  <span class="flag-icon flag-icon-tr"></span></a>
                       </h3>
                       
                       <span class="badge label-1">Maxsus  </span>
@@ -1572,7 +1596,1513 @@
                   
                 </div>
               </li>
+              
             </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center"> Steyklar</h2>
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/lokumsliv.jpg" width="100" height="100" loading="lazy" alt="lokumsliv"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Saryog'li Lokum</a>
+                      </h3>
+                      
+                      <span class="span title-2">154.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Sariyog'da quyma temir tovada pishirilgan bon file medalyonlari, non va turk guruch bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/koreyka.jpg" width="100" height="100" loading="lazy" alt="koreyka"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Qo'y qovurg'asi</a>
+                      </h3>
+                      
+                      <span class="span title-2">120.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grilda pishirilgan qo'y qovurg'alari. Baqlajon va anor sousi bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/istanbulsteyk.jpg" width="100" height="100" loading="lazy" alt="istanbulsteyk"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Istanbul Steyk</a>
+                      </h3>
+                      
+                      <span class="span title-2">164.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan mol go'shti. Pomidor, piyoz va sarimsoq asosida sous bilan tortiladi, zaytun moyi bilan to'ldiriladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/lokumizgara.jpg" width="100" height="100" loading="lazy" alt="lokumizgara"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Izgara Lokum</a>
+                      </h3>
+                      
+                      <span class="span title-2">124.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Pomidor sousida sabzavot bilan grillda tayyorlangan mol go'shti. Turk milliy taomlari "Gyuvda" da tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/ribay.jpg" width="100" height="100" loading="lazy" alt="ribay"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Ribay Steyk</a>
+                      </h3>
+                      
+                      <span class="span title-2">154.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Markaliangan  Ribai (24 kun) grill ustida tayyorlanadi. Tar-tar sousli " rozmari " kartoshka bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/kasap.jpg" width="100" height="100" loading="lazy" alt="kasap"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Kasap Steyk</a>
+                      </h3>
+                      
+                      <span class="span title-2">322.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan  mol go'shti. qo'ziqorin va qaymoqli sousida sabzavot bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/steyk/t-bon.jpg" width="100" height="100" loading="lazy" alt="t-bon"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">T-Bon Steyk</a>
+                      </h3>
+                      
+                      <span class="span title-2">152.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Markalangan t-bon (24 kun) grill da  tayyorlanadi. Grillda sabzavot va pomidor sousi bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center"> Oshpazda Taomlar</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/karniyarik.jpg" width="100" height="100" loading="lazy" alt="karniyarik"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Karni Yarik</a>
+                      </h3>
+                      
+                      <span class="span title-2">80.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Bon filesi, pomidor, kashar pishlog'i, piyoy, baqlajon, pomidor va bulg'or qalampiri bilan bezatilgan. Guruch bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/sachdivan.jpg" width="100" height="100" loading="lazy" alt="sachdivan"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Sach "Divan"  <span class="flag-icon flag-icon-tr"></span></a>
+                      </h3>
+                      
+                      <span class="span title-2">190.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qovurilgan bon filesi, qo'ziqorinlar, kartoshka, bolg'ar qalampiri, piyoz.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/barangolen.jpg" width="100" height="100" loading="lazy" alt="barangolen"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Qo'zichoq oyog'i</a>
+                      </h3>
+                      
+                      <span class="span title-2">190.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qo'zichoq oyog`i, kartoshka, qizil sabzi, piyoz, sarimsoq.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/sachkovurmagav.jpg" width="100" height="100" loading="lazy" alt="sachkovurmagav"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Mol go'shtidan Sach Qovurma</a>
+                      </h3>
+                      
+                      <span class="span title-2">155.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qaymoqli sousda qovurilgan sabzavotlar bilan go`sht bo`laklari.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/sachkovurmakur.jpg" width="100" height="100" loading="lazy" alt="sachkovurmakur"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Tovuq go'shtidan Sach Qovurma</a>
+                      </h3>
+                      
+                      <span class="span title-2">95.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qaymoqli sousda qovurilgan sabzavotli tovuq filesi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/chef blyuda/kuru.jpg" width="100" height="100" loading="lazy" alt="kuru"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Kuru Loviya(Fasol)</a>
+                      </h3>
+                      
+                      <span class="span title-2">40.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Bon file, oq loviya, pomidor, bulg'or qalampiri, piyoz.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center"> Tandir Taomlar</h2>
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/pech blyuda/pidemesnoy.jpg" width="100" height="100" loading="lazy" alt="pidemesnoy"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Go'shtli Pide</a>
+                      </h3>
+                      
+                      <span class="span title-2">74.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qayiq shaklidagi xamir, Bon filesi, pomidor, bolgar qalampiri, piyoz.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/pech blyuda/kavurmapide.jpg" width="100" height="100" loading="lazy" alt="kavurmapide"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Qovurma Pide</a>
+                      </h3>
+                      
+                      <span class="span title-2">72.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Yupqa xamir, mol go'shti.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/pech blyuda/laxmajun.jpg" width="100" height="100" loading="lazy" alt="laxmajun"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Laxmadjun</a>
+                      </h3>
+                      
+                      <span class="span title-2">40.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Yupqa xamir, qiyma go'sht, pomidor, qalampir, piyoz. Yashil va limon bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/pech blyuda/pidemolotom.jpg" width="100" height="100" loading="lazy" alt="pidemolotom"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Maydalangan go'shtli Pide</a>
+                      </h3>
+                      
+                      <span class="span title-2">62.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Yupqa xamir, mol go'shti va qo'y go`shti, sabzavotlar.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/pech blyuda/pidesirom.jpg" width="100" height="100" loading="lazy" alt="pidesirom"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Pishloqli Pide</a>
+                      </h3>
+                      
+                      <span class="span title-2">58.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Yupqa xamir, pishloq-Kashar.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center">Burgerlar</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/durum/lavash.jpg" width="100" height="100" loading="lazy" alt="lavash"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Tovuqli Durum</a>
+                      </h3>
+                      
+                      <span class="span title-2">52.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Uyda tayyorlangan Pita noni, Grillda qovurilgan tovuq sonlari, pomidor, tuzlangan bodring, salat bargi, Iskandar sousi, aji Biber, qishloq kartoshkasi, pomidor sousi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/burger/lokumburger.jpg" width="100" height="100" loading="lazy" alt="lokumburger"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Lokum Burger</a>
+                      </h3>
+                      
+                      <span class="span title-2">75.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan bon filesi, pomidor, tuzlangan bodring, kashar pishloq, yumshoq bulochkada.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/burger/divanburger.jpg" width="100" height="100" loading="lazy" alt="divanburger"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">"Divan" Burger <span class="flag-icon flag-icon-tr"></span></a>
+                      </h3>
+                      
+                      <span class="span title-2">80.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Pomidor bilan grillda pishirilgan mol go'shti pishloqli Patti, bulochka, salat bargi, kartoshka, barbekyu sousi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/burger/kuriniyburger.jpg" width="100" height="100" loading="lazy" alt="kuriniyburger"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Tovuqli Burger</a>
+                      </h3>
+                      
+                      <span class="span title-2">48.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qovurilgan tovuq pirzola, pomidor, barbekyu sousi bilan tuzlangan bodring, qovurilgan kartoshka, sarimsoq sousi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/burger/3burger.jpg" width="100" height="100" loading="lazy" alt="3burger"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Mini Burgerlar</a>
+                      </h3>
+                      
+                      <span class="span title-2">68.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan bon file, tuzlangan bodring, salat bargi, bulochka, kartoshka fri.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/burger/tombik-doner.jpg" width="100" height="100" loading="lazy" alt="tombik-doner"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Tombik Doner</a>
+                      </h3>
+                      
+                      <span class="span title-2">65.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Turk noni, donar go'shti, tuzlangan bodring, salat bargi, iskandar sousi, kartoshka fri.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center ">Kotletlar</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/kotlet/kotletsirom.jpg" width="100" height="100" loading="lazy" alt="kotletsirom"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Pishloqli Kotlet</a>
+                      </h3>
+                      
+                      <span class="span title-2">74.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      2 turdagi pishloq, bo`lingan mol go`shti, ziravorlar va piyoz bilan grillda pishirilgan. Kartoshka va bibariya bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/kotlet/kotletdivan.jpg" width="100" height="100" loading="lazy" alt="kotletdivan"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">"Divan" Kotlet <span class="flag-icon flag-icon-tr"></span></a>
+                      </h3>
+                      
+                      <span class="span title-2">76.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan mol go`shti ziravorlar va piyoz. Tomat sousi pishloq va balzamik sous bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/kotlet/kotletinegel.jpg" width="100" height="100" loading="lazy" alt="kotletinegel"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Inegöl Kotlet</a>
+                      </h3>
+                      
+                      <span class="span title-2">72.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Grillda pishirilgan mol go`shti ziravorlar va piyoz. Tomat sousi bilan tortiladi.
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center ">Gazaklar</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/naggets.jpg" width="100" height="100" loading="lazy" alt="naggets"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Tovuqli Naggetslar</a>
+                      </h3>
+                      
+                      <span class="span title-2">54.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qarsildoq tovuq filesi, Kartoshka fri.  
+                    </p>
+                    
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/gezleme.jpg" width="100" height="100" loading="lazy" alt="naggets"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Gezleme</a>
+                      </h3>
+                      
+                      <span class="span title-2">40.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Sariyog'da qovurilgan Kashhar pishloq bilan to'ldirilgan yupqa xamir.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/xumus.jpg" width="100" height="100" loading="lazy" alt="xumus"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Xumus</a>
+                      </h3>
+                      
+                      <span class="span title-2">32.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Nohat pyuresi, kunjut pastasi, sarimsoq.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/xaydari.jpg" width="100" height="100" loading="lazy" alt="xaydari"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Xaydariy</a>
+                      </h3>
+                      
+                      <span class="span title-2">28.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Suzma sarimsoq va ko'katlar bilan birgalikda.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/baklajanezme.jpg" width="100" height="100" loading="lazy" alt="baklajanezme"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Baqlajonlik Ezme</a>
+                      </h3>
+                      
+                      <span class="span title-2">35.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qovurilgan baqlajon, sarimsoq, zaytun moyi.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/ostriyezme.jpg" width="100" height="100" loading="lazy" alt="ostriyezme"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Achchiq Ezme</a>
+                      </h3>
+                      
+                      <span class="span title-2">32.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Baqlajon, pomidor, piyoz, qalampir, sarimsoq, ziravorlar.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/dolma.jpg" width="100" height="100" loading="lazy" alt="dolma"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Guruchli do'lma (Yaprak Sarma)</a>
+                      </h3>
+                      
+                      <span class="span title-2">32.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Tok barglari, guruch, piyoz, ziravorlar va zaytun moyi.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/yogurtbaklajan.jpg" width="100" height="100" loading="lazy" alt="yogurtbaklajan"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Baqlajonli Yogurt</a>
+                      </h3>
+                      
+                      <span class="span title-2">35.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Pishirilgan baqlajon, suzma va turk ziravorlari.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/sigaraberek.jpg" width="100" height="100" loading="lazy" alt="sigaraberek"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Sigara Börek</a>
+                      </h3>
+                      
+                      <span class="span title-2">30.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Qarsildoq lavash hamiri, turk brinzasi, ko'katlar.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/fri.jpg" width="100" height="100" loading="lazy" alt="fri"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Kartoshka Fri</a>
+                      </h3>
+                      
+                      <span class="span title-2">25.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Sous va kartoshka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/babakemal.jpg" width="100" height="100" loading="lazy" alt="babakemal"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Baba Kemal</a>
+                      </h3>
+                      
+                      <span class="span title-2">35.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Baqlajon, bolg'ar qalampiri, qovurilgan pomidor, qizil piyoz, ko'katlar, sarimsoq va zaytun moyi.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/kartofelezme.jpg" width="100" height="100" loading="lazy" alt="kartofelezme"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Kartoshkali Ezme</a>
+                      </h3>
+                      
+                      <span class="span title-2">30.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Kartoshka, pomidor, piyoz va o'simlik yog'i.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/zakuska/mixzakusok.jpg" width="100" height="100" loading="lazy" alt="mixzakusok"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">"Mix" Gazaklar</a>
+                      </h3>
+                      
+                      <span class="span title-2">65.000</span>
+                    </div>
+                    
+                    <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p>
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center ">Nonlar</h2>
+
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/bread/turknon.jpg" width="100" height="100" loading="lazy" alt="turknon"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Turk Noni</a>
+                      </h3>
+                      
+                      <span class="span title-2">5.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/bread/afgannon.jpg" width="100" height="100" loading="lazy" alt="afgannon"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Afg'on Noni</a>
+                      </h3>
+                      
+                      <span class="span title-2">15.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/bread/pufbread.jpg" width="100" height="100" loading="lazy" alt="pufbread"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">"Puf" Noni</a>
+                      </h3>
+                      
+                      <span class="span title-2">5.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/bread/asartibread.jpeg" width="100" height="100" loading="lazy" alt="asartibread"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Turli xil nonlar</a>
+                      </h3>
+                      
+                      <span class="span title-2">25.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
+            <p class="section-subtitle text-center label-2">Menu</p>
+            
+            <h2 class="headline-1 section-title text-center ">Shirinliklar</h2>
+            <ul class="grid-list">
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/xavuch.jpg" width="100" height="100" loading="lazy" alt="xavuch"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Muzqaymoqli "Xavuch"</a>
+                      </h3>
+                      
+                      <span class="span title-2">69.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/morkovi.jpg" width="100" height="100" loading="lazy" alt="xavuch"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Muzqaymoqsiz "Xavuch"</a>
+                      </h3>
+                      
+                      <span class="span title-2">60.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/midi.jpg" width="100" height="100" loading="lazy" alt="midi"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Midye</a>
+                      </h3>
+                      
+                      <span class="span title-2">64.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/fistashka.jpg" width="100" height="100" loading="lazy" alt="fistashka "
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Pistali (Fistashka) Durum</a>
+                      </h3>
+                      
+                      <span class="span title-2">64.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/divanchoco.jpg" width="100" height="100" loading="lazy" alt="divanchoco "
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">"Divan" Choco <span class="flag-icon flag-icon-tr"></span></a>
+                      </h3>
+                      
+                      <span class="span title-2">50.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/kadaif.jpg" width="100" height="100" loading="lazy" alt="kadaif "
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Pistali (Fistashka) Kadaif</a>
+                      </h3>
+                      
+                      <span class="span title-2">54.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/triliche.jpg" width="100" height="100" loading="lazy" alt="triliche "
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Trileche</a>
+                      </h3>
+                      
+                      <span class="span title-2">26.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/baklavagresorex.jpg" width="100" height="100" loading="lazy" alt="baklavagresorex"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Yong'oqli Baklava</a>
+                      </h3>
+                      
+                      <span class="span title-2">54.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/shobiet.jpg" width="100" height="100" loading="lazy" alt="shobiet"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Shobiyet</a>
+                      </h3>
+                      
+                      <span class="span title-2">64.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/ankara.jpg" width="100" height="100" loading="lazy" alt="ankara"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Pistali (Fistashka) Ankara</a>
+                      </h3>
+                      
+                      <span class="span title-2">60.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/sutlach.jpg" width="100" height="100" loading="lazy" alt="sutlach"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Sutlach</a>
+                      </h3>
+                      
+                      <span class="span title-2">29.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/durumfistashka.jpg" width="100" height="100" loading="lazy" alt="sutlach"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">Yong'oqli Durum Baklava</a>
+                      </h3>
+                      
+                      <span class="span title-2">59.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+              <li>
+                <div class="menu-card hover:card">
+                  
+                  <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+                    <img src="./images/desert/chansobsa.jpg" width="100" height="100" loading="lazy" alt="chansobsa"
+                    class="img-cover img-size">
+                  </figure>
+                  
+                  <div>
+                    
+                    <div class="title-wrapper">
+                      <h3 class="title-3">
+                        <a class="card-title">San-Sebastyan Chizkeyk</a>
+                      </h3>
+                      
+                      <span class="span title-2">40.000</span>
+                    </div>
+                    
+                    <!-- <p class="card-text label-1">
+                      Ezme, Haydari, Baqlajonli yogurt, Baqlajonli Ezme, Shakshuka.  
+                    </p> -->
+                  </div>
+                  
+                </div>
+              </li>
+            </ul>
+
 
 
             <!-- <p class="menu-text text-center">
@@ -1589,7 +3119,6 @@
             class="shape shape-2 move-anim">
             <img src="./images/shape-6.png" width="343" height="345" loading="lazy" alt="shape"
             class="shape shape-3 move-anim">
-            
           </div>
         </section>
         
@@ -1645,7 +3174,7 @@
               <h2 class="headline-1 text-center">Online Bron Qilish</h2>
               
               <p class="form-text text-center">
-                Buyurtma qilish uchun <a href="tel:+998712331080" class="link">+998 71 233 10 80</a> Sodiq Azimov filial <br>
+                Buyurtma qilish uchun <a href="tel:+998712331080" class="link">+998 71 233 10 80</a> Sodiq Azimov filial, <br>
                <a href="tel:+998712331080" class="link">+998 95 476 19 19</a> Abay filial
                 yoki buyurtma shaklini to'ldiring
               </p>
@@ -1754,7 +3283,7 @@
               <p class="contact-label">Buyurtma bering</p>
               
               <a href="tel:+998712331080" class="body-1 contact-number hover-underline">+998712331080</a>
-              <a href="tel:+998712331080" class="body-1 contact-number hover-underline">+998954761919</a>
+              <a href="tel:+998954761919" class="body-1 contact-number hover-underline">+998954761919</a>
               
               <div class="separator"></div>
               

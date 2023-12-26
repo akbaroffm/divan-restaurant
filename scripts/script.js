@@ -279,3 +279,57 @@ function validateForm() {
   // Yordamchi funksiya false qaytarish orqali formani to'xtatish
   return true;
 }
+
+
+// function changeLanguage(lang) {
+//   if (lang === 'en') {
+//     document.getElementById('nav-home').innerText = 'Home';
+//     document.getElementById('home-title').innerText = 'Turkish Food';
+//     document.getElementById('home-discription').innerText = 'Come with your family and enjoy a delicious meal';
+//     // Translate other elements accordingly
+//   } else if (lang === 'ru') {
+//     document.getElementById('nav-home').innerText = 'Главная страница';
+//     document.getElementById('home-title').innerText = 'Турецкая Еда';
+//     document.getElementById('home-discription').innerText = 'Приходите всей семьей и насладитесь вкусной едой';
+//     // Translate other elements accordingly
+//   } else if (lang === 'tr') {
+//     document.getElementById('nav-home').innerText = 'Ana sayfa';
+//     document.getElementById('home-title').innerText = 'Türk yemeği';
+//     document.getElementById('home-discription').innerText = 'Tüm ailenizle gelin ve lezzetli yemeklerin tadını çıkarın';
+//     // Translate other elements accordingly
+//   }
+// }
+
+// function changeLanguage(lang) {
+//   const translations = {
+//     'uz': {
+//       'navHome': 'Bosh sahifa',
+//       'homeTitle': 'Turk Taomlari',
+//       'homeDescription': "Oilangiz bilan keling va mazali taomdan zavqlaning",
+//       'menuButton': '"Menu"ni ko\'rish'
+//     },
+//     'en': {
+//       'navHome': 'Home',
+//       'homeTitle': 'Turkish Food',
+//       'homeDescription': 'Come with your family and enjoy a delicious meal',
+//       'menuButton': '"Menu"ni ko\'rish'
+//     },
+//     'ru': {
+//       'navHome': 'Главная страница',
+//       'homeTitle': 'Турецкая Еда',
+//       'homeDescription': 'Приходите всей семьей и насладитесь вкусной едой',
+//       'menuButton': '"Menu"ni ko\'rish'
+//     },
+//     'tr': {
+//       'navHome': 'Ana sayfa',
+//       'homeTitle': 'Türk yemeği',
+//       'homeDescription': 'Tüm ailenizle gelin ve lezzetli yemeklerin tadını çıkarın',
+//       'menuButton': '"Menu"ni ko\'rish'
+//     }
+//   };
+
+//   document.getElementById('nav-home').innerText = translations[lang]['navHome'];
+//   document.getElementById('home-title').innerText = translations[lang]['homeTitle'];
+//   document.getElementById('home-discription').innerText = translations[lang]['homeDescription'];
+//   document.getElementById('menu-button').innerText = translations[lang]['menuButton'];
+// }

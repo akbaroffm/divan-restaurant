@@ -628,7 +628,7 @@
   }
   
   .header.active {
-    padding-block: 10px;
+    padding-block: 5px;
     background-color: var(--eerie-black-4);
     border-color: var(--black-alpha-15);
   }
@@ -2166,4 +2166,8 @@
   }
   .del-wh{
     color: #fff;
+  }
+
+  .pt-10{
+    padding-top: 5px;
   }
