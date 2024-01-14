@@ -7,7 +7,10 @@
  */
 
 
-
+::selection{
+  background-color: white;
+  color: #7E2334;
+}
 
 
 /*-----------------------------------*\
@@ -1459,6 +1462,7 @@
   
   @media (min-width: 575px) {
   
+    .language-selector{ margin-left: auto;}
     /**
      * CUSTOM PROPERTY
      */
@@ -1657,6 +1661,7 @@
   
   @media (min-width: 768px) {
   
+    .language-selector{ margin-left: auto;}
     /**
      * REUSED STYLE
      */
@@ -1747,6 +1752,7 @@
   
   @media (min-width: 992px) {
   
+    .language-selector{ margin-left: auto;}
     /**
      * CUSTOM PROPERTY
      */
@@ -2084,7 +2090,7 @@
   
   }
   
-  
+  .language-selector{ margin-left: auto;}
   
   
   
@@ -2170,4 +2176,8 @@
 
   .pt-10{
     padding-top: 5px;
+  }
+  summary, details{
+    display: block;
+    cursor: pointer;
   }

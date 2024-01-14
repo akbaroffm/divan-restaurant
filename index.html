@@ -16,7 +16,8 @@
     -->
     <title>Divan Restaurant</title>
     <!-- -->
-    
+
+
     <!-- 
       - favicon
     -->
@@ -43,9 +44,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
-    <link rel="stylesheet" href="path/to/flag-icon-css/css/flag-icon.min.css">
+    <!-- <link rel="stylesheet" href="path/to/flag-icon-css/css/flag-icon.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-
 
 </head>
 
@@ -148,7 +148,7 @@
               <a href="#home" class="navbar-link hover-underline active">
                 <div class="separator"></div>
                 
-                <span class="span" id="nav-home">Bosh sahifa</span>
+                <span class="span" id="nav-home" data-translate="nav-home">Bosh sahifa</span>
               </a>
             </li>
             
@@ -156,7 +156,7 @@
               <a href="#menu" class="navbar-link hover-underline">
                 <div class="separator"></div>
                 
-                <span class="span">Menu</span>
+                <span class="span" data-translate="nav-menu">Menu</span>
               </a>
             </li>
             
@@ -164,7 +164,7 @@
               <a href="#about" class="navbar-link hover-underline">
                 <div class="separator"></div>
                 
-                <span class="span">Biz haqimizda</span>
+                <span class="span" data-translate="nav-about">Biz haqimizda</span>
               </a>
             </li>
             
@@ -172,7 +172,7 @@
               <a href="#cheff" class="navbar-link hover-underline">
                 <div class="separator"></div>
                 
-                <span class="span">Cheff  </span>
+                <span class="span" data-translate="nav-chef">Cheff  </span>
               </a>
             </li>
             
@@ -180,12 +180,12 @@
               <a href="#contact" class="navbar-link hover-underline">
                 <div class="separator"></div>
                 
-                <span class="span">Aloqa</span>
+                <span class="span" data-translate="nav-contact">Aloqa</span>
               </a>
             </li>
             <!-- <li class="navbar-item pt-10">
               <div class="language-selector">
-                <select style="color: white;" id="languageDropdown"class="navbar-link" onchange="changeLanguage(this.value)">
+                <select style="color: white;" id="languageSelector"class="navbar-link" onchange="setLanguage(this.value)">
                   <option value="uz" style="color: black;"><span class="flag flag-uz"></span>O'zbekcha</option>
                   <option value="en" style="color: black;"><span class="flag flag-us"></span>English</option>
                   <option value="ru" style="color: black;"><span class="flag flag-ru"></span>Русский</option>
@@ -197,19 +197,19 @@
           </ul>
           
           <div class="text-center">
-            <p class="headline-1 navbar-title">Tashrif buyuring</p>
+            <p class="headline-1 navbar-title" data-translate="welcome">Tashrif buyuring</p>
             
-            <address class="body-4">
+            <address class="body-4" data-translate="address">
               Sodiq Azimov ko'chasi 49A va Abay ko'chasi 12
             </address>
             
-            <p class="body-4 navbar-text">08:00 dan 00:00 gacha</p>
+            <p class="body-4 navbar-text" data-translate="openingHours">08:00 dan 00:00 gacha</p>
             
             <a href="https://www.instagram.com/divan.rest/" class="body-4 sidebar-link">divan.rest</a>
             
             <div class="separator"></div>
             
-            <p class="contact-label">Bron qilish</p>
+            <p class="contact-label" data-translate="reservation">Bron qilish</p>
             
             <a href="tel:+998712331080" class="body-1 contact-number hover-underline">
               +998712331080
@@ -217,7 +217,14 @@
           </div>
           
         </nav>
-        
+        <div class="language-selector">
+          <select style="color: white;" id="languageSelector"class="navbar-link" onchange="setLanguage(this.value)">
+            <option value="uz" style="color: black;"><span class="flag flag-uz"></span>O'zbekcha</option>
+            <option value="en" style="color: black;"><span class="flag flag-us"></span>English</option>
+            <option value="ru" style="color: black;"><span class="flag flag-ru"></span>Русский</option>
+            <option value="tr" style="color: black;"><span class="flag flag-tr"></span>Türkçe</option>
+          </select>
+        </div>
         <!-- <a href="#" class="btn btn-secondary">
           <span class="text text-1">Find A Table</span>
           
@@ -267,19 +274,18 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p> -->
               
-              <h2 id="home-title" class="display-1 hero-title slider-reveal">
+              <h2 id="home-title" class="display-1 hero-title slider-reveal" data-translate="home-title">
                 Turk Taomlari
-              </h2>              
-              
-              <p class="body-2 hero-text slider-reveal" id="home-discription">
+            </h2>
+            
+            <p class="body-2 hero-text slider-reveal" id="home-discription" data-translate="home-discription">
                 Oilangiz bilan keling va mazali taomdan zavqlaning
-              </p>
+            </p>            
               
-              <a href="#menu" class="btn btn-primary slider-reveal">
-                <span class="text text-1">"Menu"ni ko'rish</span>
-                
-                <span class="text text-2" aria-hidden="true">"Menu"ni ko'rish</span>
-              </a>
+            <!-- <a href="#menu" class="btn btn-primary slider-reveal" data-translate="menu-button">
+              <span class="text text-1" data-translate="menu-button">"Menu"ni ko'rish</span>
+              <span class="text text-2" aria-hidden="true" data-translate="menu-button">"Menu"ni ko'rish</span>
+            </a> -->
               
             </li>
             
@@ -291,19 +297,19 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">delightful experience</p> -->
               
-              <h2 class="display-1 hero-title slider-reveal" id="home-title">
+              <h2 class="display-1 hero-title slider-reveal" id="home-title" data-translate="european-dishes">
                 Yevropa taomlari
               </h2>
               
-              <p class="body-2 hero-text slider-reveal">
+              <p class="body-2 hero-text slider-reveal" data-translate="come-with-family">
                 Oilangiz bilan keling va mazali taomdan zavqlaning
               </p>
               
-              <a href="#menu" class="btn btn-primary slider-reveal">
-                <span class="text text-1">"Menu"ni ko'rish</span>
+              <!-- <a href="#menu" class="btn btn-primary slider-reveal" data-translate="menu-button">
+                <span class="text text-1" data-translate="menu-button">"Menu"ni ko'rish</span>
                 
-                <span class="text text-2" aria-hidden="true">"Menu"ni ko'rish</span>
-              </a>
+                <span class="text text-2" aria-hidden="true" data-translate="menu-button">"Menu"ni ko'rish</span>
+              </a> -->
               
             </li>
             
@@ -315,19 +321,19 @@
               
               <!-- <p class="label-2 section-subtitle slider-reveal">amazing & delicious</p> -->
               
-              <h1 class="display-1 hero-title slider-reveal" id="home-title">
+              <h1 class="display-1 hero-title slider-reveal" id="home-title" data-translate="awesome-atmosphere">
                 Ajoyib atmosfera
               </h1>
               
-              <p class="body-2 hero-text slider-reveal">
+              <p class="body-2 hero-text slider-reveal" data-translate="come-with-family">
                 Oilangiz bilan keling va mazali taomdan zavqlaning
               </p>
               
-              <a href="#menu" class="btn btn-primary slider-reveal">
-                <span class="text text-1">"Menu"ni ko'rish</span>
+              <!-- <a href="#menu" class="btn btn-primary slider-reveal" data-translate="menu-button">
+                <span class="text text-1" data-translate="menu-button">"Menu"ni ko'rish</span>
                 
-                <span class="text text-2" aria-hidden="true">"Menu"ni ko'rish</span>
-              </a>
+                <span class="text text-2" aria-hidden="true" data-translate="menu-button">"Menu"ni ko'rish</span>
+              </a> -->
               
             </li>
             
@@ -344,7 +350,7 @@
           <a href="#contact" class="hero-btn has-after">
             <img src="./images/hero-icon.png" width="48" height="48" alt="booking icon">
             
-            <span class="label-2 text-center span">Stol bron qilish</span>
+            <span class="label-2 text-center span" data-translate="reserve-table">Stol bron qilish</span>
           </a>
           
         </section>
@@ -415,6 +421,28 @@
                   
                 </div>
               </li>
+              <!-- <li>
+                <div class="service-card">
+                  
+                  <a href="salads.html"class="has-before hover:shine">
+                    <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                      <img src="./images/saladmenu-img.jpg" width="285" height="336" loading="lazy" alt="Salads"
+                      class="img-cover">
+                    </figure>
+                  </a>
+                  
+                  <div class="card-content">
+                    
+                    <h3 class="title-4 card-title">
+                      <a href="salads.html">Salatlar</a>
+                    </h3>
+                    
+                    <a href="#menu" class="btn-text hover-underline label-2">"Menu" ni ko'rish</a>
+                    
+                  </div>
+                  
+                </div>
+              </li> -->
               
               <li>
                 <div class="service-card">
@@ -3169,7 +3197,7 @@
           
           <div class="form reservation-form bg-black-10">
             
-            <form action="" class="form-left" onsubmit="return sendtelegram()">
+            <form action="" class="form-left" onsubmit="return sendtelegram() ">
               
               <h2 class="headline-1 text-center">Online Bron Qilish</h2>
               
@@ -3276,7 +3304,7 @@
               
             </form>
             
-            <div class="form-right text-center" style="background-image: url('./assets/images/form-pattern.png')">
+            <div class="form-right text-center" style="background-image: url('./images/form-pattern.png')">
               
               <h2 class="headline-1 text-center">Biz bilan bog'laning</h2>
               
@@ -3308,7 +3336,7 @@
               </p>
               
             </div>
-            
+
           </div>
           
         </div>

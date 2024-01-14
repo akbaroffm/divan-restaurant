@@ -279,57 +279,117 @@ function validateForm() {
   // Yordamchi funksiya false qaytarish orqali formani to'xtatish
   return true;
 }
+var translations = {
+  'uz': {
+      'welcome': 'Tashrif buyuring',
+      'address': 'Sodiq Azimov ko\'chasi 49A, Abay ko\'chasi 12',
+      'openingHours': 'Har kuni: 08:00 dan 00:00 gacha',
+      'phoneNumber1': '71 233 10 80',
+      'phoneNumber2': '95 476 19 19',
+      'instagramLink': 'divan.rest',
+      'reservation': 'Bron qilish',
+      'nav-home': 'Bosh sahifa',
+      'nav-menu': 'Menu',
+      'nav-about': 'Biz haqimizda',
+      'nav-chef': 'Cheff',
+      'nav-contact': 'Aloqa',
+      'home-title': 'Turk Taomlari',
+      'home-discription': 'Oilangiz bilan keling va mazali taomdan zavqlaning',
+      'menu-button': '"Menu"ni ko\'rish',
+      'reserve-table': 'Stol bron qilish',
+      'european-dishes': 'Yevropa taomlari',
+      'come-with-family': 'Oilangiz bilan keling va mazali taomdan zavqlaning',
+      'awesome-atmosphere': 'Ajoyib atmosfera',
+      'come-with-family': 'Oilangiz bilan keling va mazali taomdan zavqlaning',
+  },
+  'ru': {
+      'welcome': 'Добро пожаловать',
+      'address': 'улица Содик Азимова 49А, улица Абая 12',
+      'openingHours': 'Ежедневно: с 08:00 до 00:00',
+      'phoneNumber1': '71 233 10 80',
+      'phoneNumber2': '95 476 19 19',
+      'instagramLink': 'divan.rest',
+      'reservation': 'Бронирование стола',
+      'nav-home': 'Главная',
+      'nav-menu': 'Меню',
+      'nav-about': 'О нас',
+      'nav-chef': 'Повары',
+      'nav-contact': 'Контакты',
+      'home-title': 'Турецкая кухня',
+      'home-discription': 'Приходите с семьей и наслаждайтесь вкусной едой',
+      'menu-button': 'Посмотреть меню',
+      'reserve-table': 'Брон... стола',
+      'european-dishes': 'Европейские блюда',
+      'come-with-family': 'Приходите с семьей и наслаждайтесь вкусной едой',
+      'awesome-atmosphere': 'Удивительная атмосфера',
+      'come-with-family': 'Приходите с семьей и наслаждайтесь вкусной едой',
+  },
+  'en': {
+      'welcome': 'Welcome',
+      'address': 'Sodiq Azimov Street 49A, Abay Street 12',
+      'openingHours': 'Everyday: 08:00 AM to 12:00 AM',
+      'phoneNumber1': '71 233 10 80',
+      'phoneNumber2': '95 476 19 19',
+      'instagramLink': 'divan.rest',
+      'revervation': 'Reserve a table',
+      'nav-home': 'Home',
+      'nav-menu': 'Menu',
+      'nav-about': 'About Us',
+      'nav-chef': 'Cheff',
+      'nav-contact': 'Contact',
+      'home-title': 'Turkish Cuisine',
+      'home-discription': 'Come with your family and enjoy delicious food',
+      'menu-button': 'View Menu',
+      'reserve-table': 'Reserve a Table',
+      'european-dishes': 'European Dishes',
+      'come-with-family': 'Come with your family and enjoy delicious food',
+      'awesome-atmosphere': 'Awesome Atmosphere',
+      'come-with-family': 'Come with your family and enjoy delicious food',
+  },
+  'tr': {
+      'welcome': 'Hoş geldiniz',
+      'address': 'Sodiq Azimov Caddesi 49A, Abay Caddesi 12',
+      'openingHours': 'Her gün: 08:00 - 00:00',
+      'phoneNumber1': '71 233 10 80',
+      'phoneNumber2': '95 476 19 19',
+      'instagramLink': 'divan.rest',
+      'reservation': 'Masa Rezervasyonu',
+      'nav-home': 'Ana Sayfa',
+      'nav-menu': 'Menü',
+      'nav-about': 'Hakkımızda',
+      'nav-chef': 'Şef',
+      'nav-contact': 'İletişim',  
+      'home-title': 'Türk Mutfağı',
+      'home-discription': 'Ailenizle gelin ve lezzetli yemeklerin tadını çıkarın',
+      'menu-button': '"Menü"yü görüntüle',
+      'reserve-table': 'Masa Rezerv...',
+      'european-dishes': 'Avrupa Yemekleri',
+      'come-with-family': 'Ailenizle gelin ve lezzetli yemeklerin tadını çıkarın',
+      'awesome-atmosphere': 'Harika Atmosfer',
+      'come-with-family': 'Ailenizle gelin ve lezzetli yemeklerin tadını çıkarın',
+  }
+};
 
 
-// function changeLanguage(lang) {
-//   if (lang === 'en') {
-//     document.getElementById('nav-home').innerText = 'Home';
-//     document.getElementById('home-title').innerText = 'Turkish Food';
-//     document.getElementById('home-discription').innerText = 'Come with your family and enjoy a delicious meal';
-//     // Translate other elements accordingly
-//   } else if (lang === 'ru') {
-//     document.getElementById('nav-home').innerText = 'Главная страница';
-//     document.getElementById('home-title').innerText = 'Турецкая Еда';
-//     document.getElementById('home-discription').innerText = 'Приходите всей семьей и насладитесь вкусной едой';
-//     // Translate other elements accordingly
-//   } else if (lang === 'tr') {
-//     document.getElementById('nav-home').innerText = 'Ana sayfa';
-//     document.getElementById('home-title').innerText = 'Türk yemeği';
-//     document.getElementById('home-discription').innerText = 'Tüm ailenizle gelin ve lezzetli yemeklerin tadını çıkarın';
-//     // Translate other elements accordingly
-//   }
+// function setLanguage(language) {
+//   var elements = document.querySelectorAll('[data-translate]');
+//   elements.forEach(function (element) {
+//       var key = element.getAttribute('data-translate');
+//       element.textContent = translations[language][key];
+//   });
 // }
 
-// function changeLanguage(lang) {
-//   const translations = {
-//     'uz': {
-//       'navHome': 'Bosh sahifa',
-//       'homeTitle': 'Turk Taomlari',
-//       'homeDescription': "Oilangiz bilan keling va mazali taomdan zavqlaning",
-//       'menuButton': '"Menu"ni ko\'rish'
-//     },
-//     'en': {
-//       'navHome': 'Home',
-//       'homeTitle': 'Turkish Food',
-//       'homeDescription': 'Come with your family and enjoy a delicious meal',
-//       'menuButton': '"Menu"ni ko\'rish'
-//     },
-//     'ru': {
-//       'navHome': 'Главная страница',
-//       'homeTitle': 'Турецкая Еда',
-//       'homeDescription': 'Приходите всей семьей и насладитесь вкусной едой',
-//       'menuButton': '"Menu"ni ko\'rish'
-//     },
-//     'tr': {
-//       'navHome': 'Ana sayfa',
-//       'homeTitle': 'Türk yemeği',
-//       'homeDescription': 'Tüm ailenizle gelin ve lezzetli yemeklerin tadını çıkarın',
-//       'menuButton': '"Menu"ni ko\'rish'
-//     }
-//   };
+document.addEventListener('DOMContentLoaded', function () {
+  setLanguage('uz'); // Set the default language
+});
 
-//   document.getElementById('nav-home').innerText = translations[lang]['navHome'];
-//   document.getElementById('home-title').innerText = translations[lang]['homeTitle'];
-//   document.getElementById('home-discription').innerText = translations[lang]['homeDescription'];
-//   document.getElementById('menu-button').innerText = translations[lang]['menuButton'];
-// }
+function setLanguage(language) {
+  var elements = document.querySelectorAll('[data-translate]');
+  elements.forEach(function (element) {
+      var key = element.getAttribute('data-translate');
+      if (key in translations[language]) {
+          element.textContent = translations[language][key];
+      }
+  });
+}
+// translate end
